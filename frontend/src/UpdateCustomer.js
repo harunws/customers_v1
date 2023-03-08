@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export default function UpdatePage(props) {
+export default function UpdateCustomer(props) {
 
   const navigate = useNavigate();
   const [customerInfo, setCustomerInfo] = useState({
-    name: props.list.name,
-    email: props.list.email
+    customer_name: props.list.customer_name,
+    customer_email: props.list.customer_email
   });
 
   const onChangeValue = (e) => {
@@ -22,7 +22,7 @@ export default function UpdatePage(props) {
     {
       event.preventDefault();
       event.persist();
-      axios.post(`http://localhost/itrain/devooti/customers_v1/backend/customer_update.php`, {
+      axios.post(`http://localhost/itrain/customers_v1/backend/customer_update.php`, {
         customer_name: customerInfo.customer_name,
         customer_email: customerInfo.customer_email,
         customer_ids: props.list.customer_id,

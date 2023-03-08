@@ -12,17 +12,16 @@
         $viewjson["customer_email"] = $row['customer_email'];
         $viewjson["customer_date"] = $row['customer_date'];
 
-        $json_array["customerdata"][] = $viewjson;
+        $json_array["data"][] = $viewjson;
         
       }
 
-      echo json_encode(["success" => true,
-      "customerlist" => $json_array]);
-
+      echo json_encode(["success" => true,"list" => $json_array]);
       return;
 
     } else {
       echo json_encode(["success"=>false]);
+      return;
     }
 ?>
 
@@ -32,6 +31,3 @@
 
 
 
-
-
-?>

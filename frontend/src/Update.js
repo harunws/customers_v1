@@ -17,11 +17,11 @@ export default function Update() {
   const updateCustomerList = async(ids) => {
     try
     {
-      axios.post(`http://localhost/itrain/devooti/customers_v1/backend/customer_readall.php`, {
+      axios.post(`http://localhost/itrain/customers_v1/backend/customer_readsingle.php`, {
         customer_ids: ids,
       })
       .then(res => {
-        setCustomer(res.data.customerList.customerdata[0]);
+        setCustomer(res.data.customerlist.customerdata[0]);
         setLoadCustomer(true);
       })
     }

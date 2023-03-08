@@ -11,12 +11,16 @@ export default function Home() {
     allCustomer();
   }, []);
 
-  const [customers, setCustomers] = useState([]);
+  const [customer, setCustomer] = useState([]);
   const allCustomer = async (customer_ids) => {
     try {
-      axios.get(`http://localhost/itrain/devooti/customers_v1/backend/customer_readall.php`)
-      .then(res => {
-        setCustomers(res.data.customerlist.customerdata);
+      axios.get(`http://localhost/itrain/customers_v1/backend/customer_readall.php`)
+
+      
+      
+      .then(res => {     
+
+        setCustomer(res.data.list.data);
       })
 
     }catch(error){throw error;}
@@ -32,10 +36,10 @@ export default function Home() {
     try
     {
       axios.post(``, {
-        customerids: id,
+        customer_ids: id,
       })
       .then(res => {
-        setCustomers([]);
+        setCustomer([]);
         allCustomer();
       })
 
@@ -57,7 +61,7 @@ export default function Home() {
               <th scope="col">Action</th>
             </tr>
           </thead>
-          {customers.map((item, index) => (  
+          {customer.map((item, index) => (  
             <tbody key={item.customer_id}>
               <tr>
                 <th scope="row">{item.customer_id}</th>

@@ -27,7 +27,7 @@ export default function Create() {
       event.preventDefault();
       event.persist();
 
-      axios.post('http://localhost/itrain/devooti/customers_v1/backend/customer_create.php',
+      axios.post(`http://localhost/itrain/customers_v1/backend/customer_create.php`,
       {
         customer_name: customerInfo.name,
         customer_email: customerInfo.email,
