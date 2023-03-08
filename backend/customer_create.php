@@ -1,8 +1,7 @@
 <?php 
+  require "customer_dbconnection.php";
 
-  require "customer_dbconnection";
-
-  $data = json_decode(file_get_contents("php://inputs"));
+  $data = json_decode(file_get_contents("php://input"));
 
   if (isset($data->customer_name)
      && isset($data->customer_email)
@@ -33,7 +32,6 @@
   } 
   else 
   {
-
     echo json_encode(["success"=>false, "msg"=>"Please fill all the reuired fields"]);
 
     return;
